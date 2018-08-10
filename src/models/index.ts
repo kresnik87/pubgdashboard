@@ -1,5 +1,5 @@
 //export { Asset } from './asset';
-export { GameModeStats } from './gameModeStats';
+export { GameModeStats } from './GameModeStats';
 //export { Match } from './match';
 export { Participant } from './participant';
 export { Player } from './player';

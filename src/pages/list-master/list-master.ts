@@ -2,11 +2,12 @@ import {Component} from '@angular/core';
 import {IonicPage, ModalController, NavController} from 'ionic-angular';
 import {Item} from '../../models/item';
 import {Items} from '../../providers/providers';
-import { Match, PlatformRegion, Player, PubgAPI } from 'pubg-typescript-api';
+import {PlatformRegion, Player, PubgAPI} from 'pubg-typescript-api';
 
 const API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2ZDllODNiMC02MDA2LTAxMzYtMDFhOC0wNTk3MzUyNmNmMzIiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTMwNTIyOTQ2LCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6InB1Ymctc3RhdHMtZGFzaGJvYXJkIn0.KbhLD81VWCVAytGKVDY9CbYaeUdk_AP3-vbuUdDx2ZE';
 const api = new PubgAPI(API_KEY, PlatformRegion.PC_EU);
-
+const players =  Player.filterByName(api, ['KresniK87']);
+const player = players[0];
 @IonicPage()
 @Component({
   selector: 'page-list-master',
@@ -23,9 +24,8 @@ export class ListMasterPage {
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
-    const players =  Player.filterByName(api, ['KresniK87']);
-    const player = players[0];
-    console.log(`Found player "${player.name}" with ID: ${player.id}`);
+
+    console.log(player);
   }
 
   /**
